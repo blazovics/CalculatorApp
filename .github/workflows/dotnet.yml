@@ -22,9 +22,13 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - run: ls -l
     - name: Build
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - run: ls -l CalculatorApp/bin/Release/
+    - name: Release
+      uses: ncipollo/release-action@v1.14.0
+      with:
+        artifact: "./CalculatorApp/bin/Release/"
     
