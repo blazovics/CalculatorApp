@@ -23,8 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: ls -l
-      run: dotnet build --no-restore
+      run: ls -l dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
     
