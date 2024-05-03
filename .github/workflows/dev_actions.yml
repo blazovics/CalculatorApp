@@ -23,13 +23,6 @@ jobs:
       run: dotnet build --no-restore 
     - name: Test
       run: dotnet test --no-build --verbosity normal --logger trx --results-directory "TestResults" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-    - name: Publish Test
-      if: always()
-      uses: dorny/test-reporter@v1.6.0 
-      with:
-        name: Test results on branch dev
-        path: ./TestResults/*.trx
-        reporter: dotnet-trx
     - name: Upload coverage reports to Codecov
       if: always()
       uses: codecov/codecov-action@v4.0.1
@@ -37,4 +30,14 @@ jobs:
        fail_ci_if_error: true
        flags: unittests # optional
        name: codecov-umbrella
+       verbose: true
        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Publish Test
+      if: always()
+      uses: dorny/test-reporter@v1.6.0 
+      with:
+        name: Test results on branch dev
+        path: ./TestResults/*.trx
+        reporter: dotnet-trx
+   
+       
