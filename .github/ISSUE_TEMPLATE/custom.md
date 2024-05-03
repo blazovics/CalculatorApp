@@ -1,10 +1,9 @@
 ---
 name: Custom issue template
 about: Describe this issue template's purpose here.
-title: ''
+title: 'Auto Issue'
 labels: ''
-assignees: ''
-
+assignees: {{ payload.sender.login }}
 ---
 
 
