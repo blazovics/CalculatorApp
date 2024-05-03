@@ -30,3 +30,8 @@ jobs:
         name: Test results on branch dev
         path: ./TestResults/*.trx
         reporter: dotnet-trx
+    - name: Upload coverage reports to Codecov
+      if: always()
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
