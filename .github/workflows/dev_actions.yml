@@ -34,4 +34,7 @@ jobs:
       if: always()
       uses: codecov/codecov-action@v4.0.1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+       fail_ci_if_error: true
+       flags: unittests # optional
+       name: codecov-umbrella
+       token: ${{ secrets.CODECOV_TOKEN }}
