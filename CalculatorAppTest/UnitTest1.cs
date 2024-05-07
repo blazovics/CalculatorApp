@@ -13,7 +13,7 @@ public class UnitTest1
 
         int? retVal = Calculator.calculate(2, 3, Operation.Add);
 
-        Assert.AreEqual(5, retVal);
+        Assert.AreEqual(6, retVal);
 
     }
 }
